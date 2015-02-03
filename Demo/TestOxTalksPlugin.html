@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+			
+			<script src='scripts/fullcalendar/fullcalendar.min.js'></script>
+			<link href='scripts/fullcalendar/fullcalendar.css' rel='stylesheet' />
+			<link href='scripts/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+			
+			<script src='scripts/oxtalksplugin/fullcalendar_oxtalks.min.js'></script>
+			
+			
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#calendar').fullCalendar({
+						header: {
+							left: 'prev,next today',
+							center: 'title',
+							right: 'month,basicWeek,basicDay'
+						},
+						editable: false,
+						timeFormat: 'HH:mm',
+						eventSources: [
+								{
+										url:'http://talks.ox.ac.uk/show/index/9002',
+										data: {
+												x_start_datetime: new Date(2013, 10, 29),
+												x_end_datetime: '2015-04-30'
+										}
+								},
+								{
+										url:'https://talks.ox.ac.uk/show/index/10930',
+										color: 'yellow',
+										textColor: 'black',
+										data: {
+												x_start_datetime: null,
+												limit: 5
+										}
+								},
+								{
+										url: 'https://talks.ox.ac.uk/show/index/5608',
+										color: '#007700'
+								}
+						]
+					});
+				});
+			</script>
+			
+			<style>
+			
+				body {
+					margin-top: 40px;
+					text-align: center;
+					font-size: 14px;
+					font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+				}
+				
+				#calendar {
+					width: 900px;
+					margin: 0 auto;
+				}
+			
+			</style>
+		</head>
+	<body>
+		<p>Test OxTalks Compatible FullCalendar</p>
+		<div id="calendar">
+			<!--cal will go here-->
+		</div>
+	</body>
+</html>
